@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 31 21% 12%;
+    --foreground: 46 87% 88%;
+
+    --card: 31 21% 15%;
+    --card-foreground: 46 87% 88%;
+
+    --popover: 31 21% 15%;
+    --popover-foreground: 46 87% 88%;
+
+    --primary: 87 34% 58%;
+    --primary-foreground: 31 21% 12%;
+
+    --secondary: 87 20% 35%;
+    --secondary-foreground: 46 87% 88%;
+
+    --muted: 31 21% 18%;
+    --muted-foreground: 46 20% 65%;
+
+    --accent: 87 34% 58%;
+    --accent-foreground: 31 21% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 31 21% 25%;
+    --input: 31 21% 25%;
+    --ring: 87 34% 58%;
+
+    /* Chess specific colors */
+    --chess-board-light: 0 0% 95%;
+    --chess-board-dark: 0 0% 15%;
+    --chess-board-highlight: 58 100% 75%;
+    --chess-board-selected: 195 100% 70%;
+    --chess-piece-light: 0 0% 95%;
+    --chess-piece-dark: 31 21% 12%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-board: linear-gradient(135deg, hsl(var(--chess-board-light)), hsl(var(--chess-board-light) / 0.8));
+    --gradient-dark-square: linear-gradient(135deg, hsl(var(--chess-board-dark)), hsl(var(--chess-board-dark) / 0.9));
+    
+    /* Shadows */
+    --shadow-piece: 0 4px 12px hsl(31 21% 12% / 0.3);
+    --shadow-board: 0 10px 40px hsl(31 21% 12% / 0.4);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
