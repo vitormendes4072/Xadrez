@@ -1,17 +1,17 @@
-import { ChessPiece as ChessPieceType } from '@/types/chess';
-import { ChessPiece } from './ChessPiece';
+import { ChessPiece } from '@/types/chess';
 import { cn } from '@/lib/utils';
 
 interface ChessSquareProps {
-  piece: ChessPieceType | null;
+  piece: ChessPiece | null;
   isLight: boolean;
   isSelected: boolean;
   isHighlighted: boolean;
   onClick: () => void;
-  onDragStart?: (e: React.DragEvent) => void;
-  onDragOver?: (e: React.DragEvent) => void;
-  onDrop?: (e: React.DragEvent) => void;
 }
+
+const getPieceImageSrc = (piece: ChessPiece): string => {
+  return `/chess/classic/${piece.color}_${piece.type}.svg`;
+};
 
 export const ChessSquare = ({
   piece,
@@ -19,31 +19,27 @@ export const ChessSquare = ({
   isSelected,
   isHighlighted,
   onClick,
-  onDragStart,
-  onDragOver,
-  onDrop
 }: ChessSquareProps) => {
   return (
-    <div
-      className={cn(
-        "w-16 h-16 relative flex items-center justify-center transition-all duration-200",
-        "border-2",
-        isLight ? "bg-chess-board-light" : "bg-chess-board-dark",
-        isSelected && "border-chess-board-selected shadow-lg ring-2 ring-chess-board-selected ring-opacity-50",
-        isHighlighted && "bg-chess-board-highlight",
-        !isSelected && !isHighlighted && "border-transparent",
-        "hover:brightness-110"
-      )}
+    <button
+      type="button"
       onClick={onClick}
-      onDragOver={onDragOver}
-      onDrop={onDrop}
-      draggable={!!piece}
-      onDragStart={onDragStart}
-    >
-      {piece && <ChessPiece piece={piece} />}
-      {isHighlighted && !piece && (
-        <div className="w-4 h-4 rounded-full bg-chess-board-highlight opacity-60" />
+      className={cn(
+        'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center',
+        isLight ? 'bg-[#f0d9b5]' : 'bg-[#b58863]',
+        isSelected && 'ring-2 ring-yellow-400',
+        isHighlighted && 'bg-[#f6f669]',
+        'focus:outline-none'
       )}
-    </div>
+    >
+      {piece && (
+        <img
+          src={getPieceImageSrc(piece)}
+          alt={`${piece.color} ${piece.type}`}
+          className="w-3/4 h-3/4 object-contain pointer-events-none"
+          draggable={false}
+        />
+      )}
+    </button>
   );
 };
