@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g fill="#f5f5f5" stroke="#333333" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- corpo principal do cavalo -->
+    <path d="
+      M 35 80
+      L 35 55
+      C 35 45, 40 38, 45 34
+      L 40 22
+      L 52 20
+      L 60 32
+      C 64 38, 66 44, 66 50
+      L 66 80
+      Z
+    " />
+    <!-- olho -->
+    <circle cx="50" cy="30" r="2" />
+    <!-- base -->
+    <rect x="30" y="80" width="40" height="8" rx="2" />
+    <rect x="26" y="88" width="48" height="4" rx="2" />
+  </g>
+</svg>
